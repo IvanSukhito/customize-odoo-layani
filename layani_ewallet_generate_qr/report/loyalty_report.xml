@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="report_qr_card" model="ir.actions.report">
+            <field name="name">QR E-wallet</field>
+            <field name="model">loyalty.card</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">layani_ewallet_generate_qr.generate_qr_code_report_i18n</field>
+            <field name="report_file">layani_ewallet_generate_qr.generate_qr_code_report_i18n</field>
+            <field name="print_report_name">'QR Code'</field>
+            <field name="binding_model_id" ref="layani_ewallet_generate_qr.model_loyalty_card"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>
