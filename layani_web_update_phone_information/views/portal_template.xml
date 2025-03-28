@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>    
+    <template id="layani_web_update_phone_information_inherit" inherit_id="portal.portal_my_details_fields">
+        <xpath expr="//input[@name='phone']" position="replace">
+          <div class="input-group">
+                <div class="input-group-prepend">
+                    <select class="form-select-sm country-select" name="country_code">
+                        <option t-foreach="request.env['res.country'].sudo().search([('code', '=', 'ID')])"
+                                t-as="country"
+                                t-att-value="country.phone_code">
+                            <t t-set="flag" t-value="'🇮🇩'" if="country.code == 'ID'"/>
+                            <t t-esc="flag"/> +<t t-esc="country.phone_code"/>
+                        </option>
+                    </select>
+                </div>   
+                <input type="number" 
+                        name="phone"
+                        t-att-value="phone or partner.phone" 
+                       class="form-control phone-input"
+                       placeholder="8123..."
+                       required="required"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>
